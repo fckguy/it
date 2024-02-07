@@ -1,0 +1,30 @@
+CREATE TABLE subscriptions (
+    apiKey              varchar(64),
+    platformID          varchar(32),
+    UseUniqueWallet     boolean,
+    UseSingleWallet     boolean,
+    startDate           TIMESTAMP,
+    endDate             TIMESTAMP
+)
+
+CREATE TABLE users (
+    email             varchar(128),
+    userID            varchar(32),
+    password          varchar(32),
+    emailVerified     boolean,
+    added_date        TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE (email)
+)
+
+CREATE TABLE wallets (
+    userID          varchar(32),
+    walletID        varchar(32),
+    secret          varchar(64),
+    added_date      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+)
+
+
+CREATE TABLE sessions (
+    sessionID       varchar(32),
+    userID          varchar(32),
+)
